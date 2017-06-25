@@ -4,6 +4,8 @@
 #include <vector>
 #include <string.h>
 #include <assert.h>
+#include <stdexcept>
+#include <cmath>
 
 #include "lodepng.h" //Used for png encoding.
 

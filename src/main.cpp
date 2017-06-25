@@ -5,7 +5,7 @@
 #include <string.h>
 #include <assert.h>
 
-#include "lodepng.h" //Uused for png encoding.
+#include "lodepng.h" //Used for png encoding.
 
 const int WIDTH = 3200; // Size of rendered mandelbrot set.
 const int HEIGHT = 2400; // Size of renderered mandelbrot set.

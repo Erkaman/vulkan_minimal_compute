@@ -9,7 +9,7 @@ and is only ~400LOC. *The code is heavily commented, so it should be useful for 
 The only depdendencies are Vulkan and `lodepng`. `lodepng` is simply used for png encoding. Vulkan can be installed
 from `lunarg.com`
 
-![](img/img.png)
+![](image.png)
 
 # Demo
 

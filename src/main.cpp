@@ -217,7 +217,7 @@ public:
             }
             
             if (!foundLayer) {
-                throw new std::runtime_error("Layer VK_LAYER_LUNARG_standard_validation not supported\n");
+                throw std::runtime_error("Layer VK_LAYER_LUNARG_standard_validation not supported\n");
             }
             enabledLayers.push_back("VK_LAYER_LUNARG_standard_validation"); // Alright, we can use this layer.
 
@@ -244,7 +244,7 @@ public:
             }
 
             if (!foundExtension) {
-                throw new std::runtime_error("Extension VK_EXT_DEBUG_REPORT_EXTENSION_NAME not supported\n");
+                throw std::runtime_error("Extension VK_EXT_DEBUG_REPORT_EXTENSION_NAME not supported\n");
             }
             enabledExtensions.push_back(VK_EXT_DEBUG_REPORT_EXTENSION_NAME);
         }		
@@ -299,7 +299,7 @@ public:
             // We have to explicitly load this function.
             auto vkCreateDebugReportCallbackEXT = (PFN_vkCreateDebugReportCallbackEXT)vkGetInstanceProcAddr(instance, "vkCreateDebugReportCallbackEXT");
             if (vkCreateDebugReportCallbackEXT == nullptr) {
-                throw new std::runtime_error("Could not load vkCreateDebugReportCallbackEXT");
+                throw std::runtime_error("Could not load vkCreateDebugReportCallbackEXT");
             }
 
             // Create and register callback.
@@ -319,7 +319,7 @@ public:
         uint32_t deviceCount;
         vkEnumeratePhysicalDevices(instance, &deviceCount, NULL);
         if (deviceCount == 0) {
-            throw new std::runtime_error("could not find a device with vulkan support");
+            throw std::runtime_error("could not find a device with vulkan support");
         }
 
         std::vector<VkPhysicalDevice> devices(deviceCount);
@@ -377,7 +377,7 @@ public:
         }
 
         if (i == queueFamilies.size()) {
-            throw new std::runtime_error("could not find a queue family that supports operations");
+            throw std::runtime_error("could not find a queue family that supports operations");
         }
 
         return i;
@@ -759,7 +759,7 @@ public:
             // destroy callback.
             auto func = (PFN_vkDestroyDebugReportCallbackEXT)vkGetInstanceProcAddr(instance, "vkDestroyDebugReportCallbackEXT");
             if (func == nullptr) {
-                throw new std::runtime_error("Could not load vkDestroyDebugReportCallbackEXT");
+                throw std::runtime_error("Could not load vkDestroyDebugReportCallbackEXT");
             }
             func(instance, debugReportCallback, NULL);
         }

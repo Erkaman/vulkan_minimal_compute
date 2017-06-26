@@ -577,7 +577,7 @@ public:
 
     // Read file into array of bytes, and cast to uint32_t*, then return.
     // The data has been padded, so that it fits into an array uint32_t.
-    uint32_t* readFile(uint32_t& length, char* filename) {
+    uint32_t* readFile(uint32_t& length, const char* filename) {
 
         FILE* fp = fopen(filename, "rb");
         if (fp == NULL) {

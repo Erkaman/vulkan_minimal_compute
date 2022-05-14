@@ -206,20 +206,25 @@ public:
             /*
             And then we simply check if VK_LAYER_LUNARG_standard_validation is among the supported layers.
             */
-            bool foundLayer = false;
+            bool foundLayer0 = false;
+            bool foundLayer1 = false;
             for (VkLayerProperties prop : layerProperties) {
                 
                 if (strcmp("VK_LAYER_LUNARG_standard_validation", prop.layerName) == 0) {
-                    foundLayer = true;
+                    foundLayer0 = true;
                     break;
                 }
-
+                if (strcmp("VK_LAYER_KHRONOS_validation", prop.layerName) == 0) {
+                    foundLayer1 = true;
+                    break;
+                }
             }
-            
-            if (!foundLayer) {
+            if (foundLayer0)
+                enabledLayers.push_back("VK_LAYER_LUNARG_standard_validation");
+            else if (foundLayer1)
+                enabledLayers.push_back("VK_LAYER_KHRONOS_validation");
+            else
                 throw std::runtime_error("Layer VK_LAYER_LUNARG_standard_validation not supported\n");
-            }
-            enabledLayers.push_back("VK_LAYER_LUNARG_standard_validation"); // Alright, we can use this layer.
 
             /*
             We need to enable an extension named VK_EXT_DEBUG_REPORT_EXTENSION_NAME,
